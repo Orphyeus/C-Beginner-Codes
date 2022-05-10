@@ -1,0 +1,33 @@
+//Generate random matrix and finding the max of rows
+	int i, j, row, column;
+  srand(time(NULL));
+
+  printf("Enter the row of Matrix: ");
+  scanf("%d", &row);
+  printf("Enter the column of Matrix: ");
+  scanf("%d", &column);
+
+  printf("\n");
+
+  int max_of_rows[row];
+  int matrix[row][column];
+  
+  for(i = 0; i < row; i++){
+    for(j = 0; j < column; j++){
+      //generating a matrix with random values
+      matrix[i][j] = rand()%100;
+      printf("%d\t",matrix[i][j]);
+
+      max_of_rows[i] = matrix[i][0];
+      
+      //finding the max of rows
+      if(matrix[i][j] > max_of_rows[i]){
+        max_of_rows[i] = matrix[i][j];
+      }
+    }
+    printf("\n");
+  }
+
+  for(i = 0; i < row; i++){
+  printf("\nMax value of %d. row: %d",i+1, max_of_rows[i]);
+  }
